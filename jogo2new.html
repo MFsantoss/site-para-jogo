@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo Simples</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0e0e0e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    #square {
+      width: 50px;
+      height: 50px;
+      background-color: #00ffea;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    #score {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div id="score">Pontos: 0</div>
+  <div id="square"></div>
+
+  <script>
+    const square = document.getElementById("square");
+    const scoreDisplay = document.getElementById("score");
+    let score = 0;
+
+    function moveSquare() {
+      const x = Math.random() * (window.innerWidth - 50);
+      const y = Math.random() * (window.innerHeight - 50);
+      square.style.left = x + "px";
+      square.style.top = y + "px";
+    }
+
+    square.addEventListener("click", () => {
+      score++;
+      scoreDisplay.textContent = "Pontos: " + score;
+      moveSquare();
+    });
+
+    moveSquare(); // iniciar com o quadrado em uma posição aleatória
+  </script>
+</body>
+</html>
